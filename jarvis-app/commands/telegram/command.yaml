@@ -1,0 +1,13 @@
+list:
+- command:
+    action: cli  
+    cli_cmd: start C:\Users\NikolaEng\Scripts\telegram.exe
+  voice:
+    sounds:
+    - ok1
+    - ok2
+    - ok3
+  phrases:
+  - запусти скрипт телеграм
+  - открой скрипт телеграм
+  - телеграм
