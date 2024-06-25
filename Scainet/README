@@ -1,0 +1,45 @@
+## Russian model for Kaldi
+
+Copyright 2017-2020 AC Technologies LLC
+
+This is a Kaldi model for Russian
+
+Before testing adjust Kaldi root location in decoding script.
+
+Run decode.sh to test the decoding with a wav file, make sure that file is 8khz mono PCM format.
+
+Requires more or less recent Kaldi version, earlier versions will not work
+
+## Changes in version 0.7
+
+Bigger tdnn-f model with specaugment, more epochs
+Much better language model trained on huge amount of texts
+
+## Changes in version 0.8
+
+More data and augmentations, should be better on phone calls
+
+## Changes in version 0.9
+
+Added RNNLM rescoring
+
+## Changes in version 0.10
+
+No accuracy changes, reorganize layout to directly load the model from vosk-api
+
+## WER estimates
+
+| Model                                    |  v0.6 WER  |  v0.7 WER  |  v0.8 WER  | v0.9/v0.10 WER  |
+|------------------------------------------|------------|------------|------------|-----------------|
+| asr_calls_2_val (snakers4/open_stt)      |    54.47   |    47.05   |   41.81    |       40.15     |
+| public_youtube700_val (snakers4/open_stt)|    37.55   |    30.13   |   27.46    |       26.20     |
+| audiobooks (snakers4/open_stt)           |            |            |   17.13    |       16.26     |
+| audiobooks (our)                         |    8.86    |    6.61    |   6.48     |       5.71      |
+
+Note that for the best accuracy you need to use RNNLM rescoring which is
+not yet supported in vosk-api, you have to use decoding script from the
+archive. But vosk-api should be ok too, it supports carpa rescoring and
+should be close to RNNLM.
+
+The openstt results use fixed references (attached in extra/openstt-ref folder)
+
