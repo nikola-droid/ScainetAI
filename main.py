@@ -63,7 +63,7 @@ device = sd.default.device  # <--- по умолчанию
 # или -> sd.default.device = 1, 3, python -m sounddevice просмотр
 samplerate = int(sd.query_devices(device[0], 'input')['default_samplerate'])  # получаем частоту микрофона
 
-
+print('Готов к работе')
 def callback(indata, frames, time, status):
     '''
     Добавляет в очередь семплы из потока.
@@ -117,7 +117,7 @@ def main():
     del words.data_set
 
     # постоянная прослушка микрофона
-    with sd.RawInputStream(samplerate=samplerate, blocksize=16000, device=device[0], dtype='int16',
+    with sd.RawInputStream(samplerate=samplerate, blocksize=30000, device=device[0], dtype='int16',
                            channels=1, callback=callback):
 
         rec = vosk.KaldiRecognizer(model, samplerate)
@@ -133,4 +133,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-
+https://www.youtube.com/watch?v=MXdsPKZyZ48
