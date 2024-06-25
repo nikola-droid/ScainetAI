@@ -19,7 +19,7 @@ samplerate = int(sd.query_devices(device[0], 'input')['default_samplerate'])  # 
 
 print('Готов к работе')
 
-os.system('start C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\Voice\\hi.exe')
+os.system('start C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
 
 def callback(indata, frames, time, status):
     '''
