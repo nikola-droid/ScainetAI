@@ -5,7 +5,7 @@ import vosk  # pip install vosk
 
 import json
 import queue
-
+import voice
 import words
 from skills import *
 
@@ -50,6 +50,7 @@ def recognize(data, vectorizer, clf):
     # получение имени функции из ответа из data_set
     func_name = answer.split()[0]
 
+    voice.speaker(answer.replace(func_name, ''))
 
     # запуск функции из skills
     exec(func_name + '()')
