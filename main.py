@@ -31,7 +31,7 @@ def callback(indata, frames, time, status):
 
 print('Готов к работе')
 
-os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
+os.system('start %USERPROFILE%\Documents\GitHub\ScainetAI\Voice\SA_Greeting_01_type2.wav')
 def recognize(data, vectorizer, clf):
 
     TRIGGERS = {'скайнет'}
