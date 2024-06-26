@@ -11,15 +11,13 @@ from skills import *
 
 q = queue.Queue()
 
-model = vosk.Model('vosk-model-ru-0.10')  # голосовую модель vosk нужно поместить в папку с файлами проекта
+model = vosk.Model('vosk-model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
 
 
 device = sd.default.device
 samplerate = int(sd.query_devices(device[0], 'input')['default_samplerate'])  # получаем частоту микрофона
 
-print('Готов к работе')
 
-os.system('start C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
 
 def callback(indata, frames, time, status):
     '''
@@ -29,7 +27,9 @@ def callback(indata, frames, time, status):
 
     q.put(bytes(indata))
 
+print('Готов к работе')
 
+os.system('start C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
 def recognize(data, vectorizer, clf):
 
     TRIGGERS = {'скайнет'}
