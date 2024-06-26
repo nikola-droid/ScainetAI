@@ -9,6 +9,8 @@ import voice
 import words
 from skills import *
 
+
+
 q = queue.Queue()
 
 model = vosk.Model('vosk-model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
@@ -29,7 +31,7 @@ def callback(indata, frames, time, status):
 
 print('Готов к работе')
 
-os.system('start C:\\Users\\Gdbo1\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
+os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
 def recognize(data, vectorizer, clf):
 
     TRIGGERS = {'скайнет'}
@@ -87,4 +89,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
 

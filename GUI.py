@@ -1,5 +1,9 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import sys
+
+
+
 
 root = Tk()
 root.title("Scainet")
@@ -9,6 +13,7 @@ root.maxsize(1280, 720)
 root.geometry("480x480+320+150")
 
 gif = Image.open("GUI\ScainetHUD.gif")
+
 
 # Create a list of frames
 frames = []
@@ -28,3 +33,11 @@ def play_animation(frame_idx):
 # Start playing the animation
 play_animation(0)
 root.mainloop()
+
+
+
+
+
+
+
+

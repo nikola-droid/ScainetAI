@@ -30,7 +30,9 @@ def passive():
 	pass
 
 def offBot():
-	sys.exit()
+	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
+
+
 
 
 
