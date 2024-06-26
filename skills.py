@@ -32,6 +32,8 @@ def passive():
 def offBot():
 	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
 
+def wife():
+	os.system('start python %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\love.py')
 
 
 

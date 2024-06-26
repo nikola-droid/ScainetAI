@@ -74,7 +74,7 @@ def main():
     del words.data_set
 
     # постоянная прослушка микрофона
-    with sd.RawInputStream(samplerate=samplerate, blocksize=30000, device=device[0], dtype='int16',
+    with sd.RawInputStream(samplerate=samplerate, blocksize=25000, device=device[0], dtype='int16',
                            channels=1, callback=callback):
 
         rec = vosk.KaldiRecognizer(model, samplerate)
@@ -83,8 +83,8 @@ def main():
             if rec.AcceptWaveform(data):
                 data = json.loads(rec.Result())['text']
                 recognize(data, vectorizer, clf)
-            # else:
-            #     print(rec.PartialResult())
+            else:
+                print(rec.PartialResult())
 
 
 if __name__ == '__main__':
