@@ -29,7 +29,7 @@ def callback(indata, frames, time, status):
 
 print('Готов к работе')
 
-os.system('start C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
+os.system('start C:\\Users\\Gdbo1\\Documents\\GitHub\\ScainetAI\\comands\\hi.exe')
 def recognize(data, vectorizer, clf):
 
     TRIGGERS = {'скайнет'}

@@ -1,8 +1,7 @@
 import os
 import webbrowser
 import sys
-from ahk import AHK
-ahk = AHK()
+
 
 try:
 	import requests		#pip install requests
@@ -33,8 +32,7 @@ def passive():
 def offBot():
 	sys.exit()
 
-def hi():
-	os.system('start C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\Voice\\слушаю,сер.exe')
+
 
 
 
