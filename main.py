@@ -1,3 +1,5 @@
+import wave
+
 from sklearn.feature_extraction.text import CountVectorizer  # pip install scikit-learn
 from sklearn.linear_model import LogisticRegression
 import sounddevice as sd  # pip install sounddevice
@@ -31,7 +33,8 @@ def callback(indata, frames, time, status):
 
 print('Готов к работе')
 
-os.system('start %USERPROFILE%\Documents\GitHub\ScainetAI\Voice\SA_Greeting_01_type2.wav')
+hi()
+
 def recognize(data, vectorizer, clf):
 
     TRIGGERS = {'скайнет'}
@@ -74,7 +77,7 @@ def main():
     del words.data_set
 
     # постоянная прослушка микрофона
-    with sd.RawInputStream(samplerate=samplerate, blocksize=25000, device=device[0], dtype='int16',
+    with sd.RawInputStream(samplerate=samplerate, blocksize=20000, device=device[0], dtype='int16',
                            channels=1, callback=callback):
 
         rec = vosk.KaldiRecognizer(model, samplerate)
@@ -85,7 +88,6 @@ def main():
                 recognize(data, vectorizer, clf)
             else:
                 print(rec.PartialResult())
-
 
 if __name__ == '__main__':
     main()

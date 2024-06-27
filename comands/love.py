@@ -53,7 +53,7 @@ def txt():
     pen.color('lightgreen')
   
 
-    pen.write("I LOVE YOU", font=(
+    pen.write("ПОРНО НЕТ", font=(
       "Verdana", 12, "bold"))
   
   

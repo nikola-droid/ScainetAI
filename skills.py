@@ -1,6 +1,9 @@
 import os
 import webbrowser
 import sys
+import wave
+import simpleaudio as sa
+import simpleaudio.functionchecks as fc
 
 
 try:
@@ -35,7 +38,12 @@ def offBot():
 def wife():
 	os.system('start python %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\love.py')
 
-
+def hi():
+	f_name = 'Voice\hi.wav'
+	wave_obj = sa.WaveObject.from_wave_file(f_name)
+	play = wave_obj.play()
+	play.wait_done()
+	play.stop()
 
 
 
