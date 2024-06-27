@@ -3,7 +3,6 @@ import webbrowser
 import sys
 import wave
 import simpleaudio as sa
-import simpleaudio.functionchecks as fc
 import random
 
 
@@ -164,6 +163,7 @@ def music():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
+	os.system('start %USERPROFILE%\AppData\Local\Programs\YandexMusic\Яндекс_Музыка.exe')
 
 
 
