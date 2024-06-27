@@ -1,5 +1,8 @@
 import socket
-HOST = '127.0.0.1'
+from skills import *
+import words
+
+HOST = '26.175.109.28'
 PORT = 65432
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -13,4 +16,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break
             if data == b'say hello':
-                print("hello")
+                print("Подключено")
