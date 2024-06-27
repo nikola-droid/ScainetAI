@@ -10,7 +10,7 @@ root.title("Scainet")
 root.configure(background="darkGrey")
 root.minsize(690, 388)  # width, height
 root.maxsize(690, 388)
-root.geometry("480x480+320+150")
+root.geometry("480x480+600+300")
 
 gif = Image.open("GUI\HUD-Interface-NEW.gif")
 
