@@ -8,11 +8,11 @@ import sys
 root = Tk()
 root.title("Scainet")
 root.configure(background="darkGrey")
-root.minsize(1280, 720)  # width, height
-root.maxsize(1280, 720)
+root.minsize(690, 388)  # width, height
+root.maxsize(690, 388)
 root.geometry("480x480+320+150")
 
-gif = Image.open("GUI\ScainetHUD.gif")
+gif = Image.open("GUI\HUD-Interface-NEW.gif")
 
 
 # Create a list of frames
