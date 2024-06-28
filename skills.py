@@ -1,9 +1,11 @@
 import os
 import webbrowser
-import sys
-import wave
+import vosk
 import simpleaudio as sa
 import random
+import sounddevice as sd
+
+
 
 
 try:
@@ -11,19 +13,17 @@ try:
 except:
 	pass
 
-def browser():
-	data = [
-		 'Voice\Browser\Browser.wav',
-		'Voice\Browser\Browser_1.wav',
-	]
-	r=random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
 
-	webbrowser.open('https://ya.ru/', new=2)
+model = vosk.Model('vosk-model-small')
+device = sd.default.device
+samplerate = int(sd.query_devices(device[0], 'input')['default_samplerate'])
+
+
+
+
+
+
+
 
 def game():
 	data = [
@@ -124,6 +124,7 @@ def lisn():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
+	print('compl')
 
 def times():
 	data = [
