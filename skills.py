@@ -7,7 +7,6 @@ import sounddevice as sd
 
 
 
-
 try:
 	import requests		#pip install requests
 except:
