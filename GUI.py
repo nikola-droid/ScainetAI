@@ -1,8 +1,5 @@
 from tkinter import *
 from PIL import Image, ImageTk
-import sys
-
-
 
 
 root = Tk()
@@ -39,7 +36,8 @@ txtBox.config(yscrollcommand=sr.set)
 
 def searching():    #Функция записи в текстбокс
     key = txtBox.get("1.0",'end-1c')
-    print(key)
+
+
 
 
 #ButtonDesign
@@ -49,14 +47,12 @@ btn1.place(x=40, y=600)
 
 
 
-
-
-
 play_animation(0)
 root.mainloop()
 
 
-
+class MyGlobals(object):
+    task=searching
 
 
 

@@ -1,6 +1,3 @@
-import codecs
-import wave
-
 from sklearn.feature_extraction.text import CountVectorizer  # pip install scikit-learn
 from sklearn.linear_model import LogisticRegression
 import sounddevice as sd  # pip install sounddevice
@@ -11,7 +8,7 @@ import voice
 import words
 import tempfile
 from skills import *
-import time
+
 
 
 
@@ -81,7 +78,6 @@ def main():
     clf.fit(vectors, list(words.data_set.values()))
 
     del words.data_set
-    text = ""
     # постоянная прослушка микрофона
     with sd.RawInputStream(samplerate=samplerate, blocksize=48000, device=device[0], dtype='int16',
                            channels=1, callback=callback):
@@ -92,31 +88,8 @@ def main():
             if rec.AcceptWaveform(data):
                 data = json.loads(rec.Result())['text']
                 recognize(data, vectorizer, clf)
-                mylist = rec.Result()
-                with open('data.json', 'w') as f:
-                    json.dump(mylist, f)
-
             else:
-                f=open(r'comands\text.txt','r+', encoding='utf-8')
-                f.write(rec.PartialResult())
                 print(rec.PartialResult())
-
-
-
-
-
-
-def browser():
-    word_input = open(r'comands\text.txt', 'r+', encoding='utf-8')
-    word_input.readline()
-    word_input.readline()
-    word_input = word_input.readline()
-    word_input = word_input[15:-1]
-    for i in range(0, len(word_input)):
-        if word_input[i] == " ":        word_input = word_input[0:i] + "+" + word_input[i + 1:len(word_input)]
-    word_output = "https://yandex.ru/search/?text=" + word_input
-    webbrowser.open(word_output, new=1)
-
 
 
 if __name__ == '__main__':

@@ -1,9 +1,8 @@
 import os
 import webbrowser
-import vosk
 import simpleaudio as sa
 import random
-import sounddevice as sd
+from GUI import MyGlobals
 
 
 
@@ -13,13 +12,13 @@ except:
 	pass
 
 
-model = vosk.Model('vosk-model-small')
-device = sd.default.device
-samplerate = int(sd.query_devices(device[0], 'input')['default_samplerate'])
 
 
 
 
+def browser():
+    word_output = "https://yandex.ru/search/?text={}" + MyGlobals.task
+    webbrowser.open(word_output, new=2)
 
 
 
@@ -48,7 +47,8 @@ def offpc():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
-	os.system('shutdown \s')
+
+	os.system('shutdown /s /t 10 ')
 
 def passive():
 	'''Функция заглушка при простом диалоге с ботом'''
