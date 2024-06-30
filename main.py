@@ -16,6 +16,7 @@ from skills import *
 
 q = queue.Queue()
 
+
 model = vosk.Model('vosk-model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
 new_file, filename = tempfile.mkstemp()
 
@@ -32,10 +33,14 @@ def callback(indata, frames, time, status):
 
     q.put(bytes(indata))
 
+
+
 print('Готов к работе')
+
 
 hi()
 
+from skills import *
 def recognize(data, vectorizer, clf):
 
     TRIGGERS = {'скайнет'}
@@ -48,6 +53,7 @@ def recognize(data, vectorizer, clf):
     # удаляем имя бота из текста
     data.replace(list(trg)[0], '')
 
+
     # получаем вектор полученного текста
     # сравниваем с вариантами, получая наиболее подходящий ответ
     text_vector = vectorizer.transform([data]).toarray()[0]
@@ -58,8 +64,12 @@ def recognize(data, vectorizer, clf):
 
     voice.speaker(answer.replace(func_name, ''))
 
+    MyGlobals.task = data[15:]
+
     # запуск функции из skills
     exec(func_name + '()')
+
+
 
 
 
@@ -73,6 +83,7 @@ def main():
     # Обучение матрицы на data_set модели
     vectorizer = CountVectorizer()
     vectors = vectorizer.fit_transform(list(words.data_set.keys()))
+
 
     clf = LogisticRegression()
     clf.fit(vectors, list(words.data_set.values()))
@@ -90,6 +101,11 @@ def main():
                 recognize(data, vectorizer, clf)
             else:
                 print(rec.PartialResult())
+                #print(json.loads(rec.Result()))
+
+
+
+
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@ import os
 import webbrowser
 import simpleaudio as sa
 import random
-from GUI import MyGlobals
+import time
 
 
 
@@ -12,13 +12,16 @@ except:
 	pass
 
 
-
+class MyGlobals(object):
+	task = ' '
 
 
 
 def browser():
-    word_output = "https://yandex.ru/search/?text={}" + MyGlobals.task
-    webbrowser.open(word_output, new=2)
+
+	word_input = MyGlobals.task
+	word_output = "https://yandex.ru/search/?text=" + word_input
+	webbrowser.open(word_output, new=2)
 
 
 
@@ -123,7 +126,6 @@ def lisn():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
-	print('compl')
 
 def times():
 	data = [

@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 
+
 root = Tk()
 root.title("Scainet")
 root.configure(background="darkGrey")
@@ -51,8 +52,6 @@ play_animation(0)
 root.mainloop()
 
 
-class MyGlobals(object):
-    task=searching
 
 
 
