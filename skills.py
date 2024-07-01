@@ -62,6 +62,25 @@ def passive_1():
 
 	pass
 
+def restart():
+	data = [
+		'Voice\lis\lisn.wav',
+		'Voice\lis\out.wav',
+		'Voice\lis\out_1.wav',
+		'Voice\lis\out_2.wav',
+		'Voice\lis\out_3.wav',
+		'Voice\lis\out_4.wav',
+		'Voice\lis\yes.wav',
+	]
+	r = random.choice(data)
+	f_name = r
+	wave_obj = sa.WaveObject.from_wave_file(f_name)
+	play = wave_obj.play()
+	play.wait_done()
+	play.stop()
+	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\RunScript.vbs')
+	quit()
+
 def offBot():
 	data = [
 		'Voice\offbot\slip.wav',
