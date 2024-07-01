@@ -65,6 +65,7 @@ def recognize(data, vectorizer, clf):
     voice.speaker(answer.replace(func_name, ''))
 
     MyGlobals.task = data[15:]
+    MyGlobals.data = data
 
     # запуск функции из skills
     exec(func_name + '()')
@@ -101,7 +102,6 @@ def main():
                 recognize(data, vectorizer, clf)
             else:
                 print(rec.PartialResult())
-                #print(json.loads(rec.Result()))
 
 
 

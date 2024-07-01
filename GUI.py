@@ -1,5 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import subprocess as sub
+from skills import MyGlobals
 
 
 
@@ -35,6 +37,10 @@ sr=Scrollbar(root)
 sr.config(command=txtBox.yview)
 txtBox.config(yscrollcommand=sr.set)
 
+
+
+
+
 def searching():    #Функция записи в текстбокс
     key = txtBox.get("1.0",'end-1c')
 
@@ -45,10 +51,16 @@ def searching():    #Функция записи в текстбокс
 Button_img = PhotoImage(file = "GUI\Button.png")
 btn1 = Button(root, text="Button_1", padx=50, pady=15, image=Button_img, command=searching)
 btn1.place(x=40, y=600)
-
-
-
 play_animation(0)
+#вывод из консоли в GUI
+output = MyGlobals.data
+root = Tk()
+text = Text(root)
+text.pack()
+text.insert(END, output)
+root.mainloop()
+
+
 root.mainloop()
 
 
