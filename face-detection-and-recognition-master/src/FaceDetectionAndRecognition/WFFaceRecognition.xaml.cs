@@ -16,6 +16,7 @@ using Emgu.CV.Util;
 using Microsoft.Win32;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
+using System.Diagnostics;
 
 namespace FaceDetectionAndRecognition
 {
@@ -202,13 +203,17 @@ namespace FaceDetectionAndRecognition
                 imageList.Push(face.FaceImage.Mat);
                 nameList.Add(face.PersonName);
                 labelList.Push(new[] { i++ });
-            }
-            if(nameList == 'Enginer')
-            {
-                    ScriptEngine engine = Python.CreateEngine();
-                    engine.ExecuteFile(@"ScainetAI\main.py");
+
+                
+                
             }
             reader.Close();
+
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.Arguments = @"C:\\Users\\NikolaEng\\Documents\\GitHub\\ScainetAI\\RunScript.vbs";
+            process.Start();
 
             // Train recogniser
             if (imageList.Size > 0)

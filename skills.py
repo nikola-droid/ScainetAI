@@ -1,4 +1,5 @@
 import os
+import subprocess
 import webbrowser
 import simpleaudio as sa
 import random
@@ -94,6 +95,26 @@ def offBot():
 	play.stop()
 	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
 
+
+def telegram():
+	data = [
+		'Voice\lis\lisn.wav',
+		'Voice\lis\out.wav',
+		'Voice\lis\out_1.wav',
+		'Voice\lis\out_2.wav',
+		'Voice\lis\out_3.wav',
+		'Voice\lis\out_4.wav',
+		'Voice\lis\yes.wav',
+	]
+	r = random.choice(data)
+	f_name = r
+	wave_obj = sa.WaveObject.from_wave_file(f_name)
+	play = wave_obj.play()
+	play.wait_done()
+	play.stop()
+	cmd = 'start %USERPROFILE%\AppData\Roaming\Telegram_Desktop\Telegram.exe'
+	process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+
 def wife():
 	data = [
 		'Voice\wife\wife.wav',
@@ -130,6 +151,7 @@ def dialog():
 	play.stop()
 
 def lisn():
+	pass
 	data = [
 		 'Voice\lis\lisn.wav',
 		'Voice\lis\out.wav',

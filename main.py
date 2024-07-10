@@ -8,11 +8,11 @@ import voice
 import words
 import tempfile
 from skills import *
+from istall_pip import *
 
 
 
-
-
+install()
 
 q = queue.Queue()
 
@@ -101,7 +101,6 @@ def main():
                 recognize(data, vectorizer, clf)
             else:
                 print(rec.PartialResult())
-                #print(json.loads(rec.Result()))
 
 
 
