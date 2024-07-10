@@ -17,7 +17,7 @@ install()
 q = queue.Queue()
 
 
-model = vosk.Model('vosk-model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
+model = vosk.Model('vosk-model-ru-0.10')  # голосовую модель vosk нужно поместить в папку с файлами проекта
 new_file, filename = tempfile.mkstemp()
 
 device = sd.default.device
