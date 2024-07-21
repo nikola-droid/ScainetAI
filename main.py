@@ -17,7 +17,7 @@ install()
 q = queue.Queue()
 
 
-model = vosk.Model('vosk-model-ru-0.10')  # голосовую модель vosk нужно поместить в папку с файлами проекта
+model = vosk.Model('model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
 new_file, filename = tempfile.mkstemp()
 
 device = sd.default.device
@@ -90,12 +90,12 @@ def main():
 
     del words.data_set
     # постоянная прослушка микрофона
-    with sd.RawInputStream(samplerate=samplerate, blocksize=48000, device=device[0], dtype='int16',
+    with sd.RawInputStream(samplerate=samplerate, blocksize=56000, device=device[0], dtype='int16',
                            channels=1, callback=callback):
 
         rec = vosk.KaldiRecognizer(model, samplerate)
         while True:
-            data=q.get()
+            data = q.get()
             if rec.AcceptWaveform(data):
                 data = json.loads(rec.Result())['text']
                 recognize(data, vectorizer, clf)
