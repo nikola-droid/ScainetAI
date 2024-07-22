@@ -8,13 +8,28 @@ import voice
 import words
 import tempfile
 from skills import *
-from istall_pip import *
+import logging
 
+logging.getLogger("vosk").setLevel(logging.WARNING)
+key = input("Password  ")
 
+while key!="1234":
+    key = input("Password  ")
 
-install()
+if key =="1234":
+    print("\x1b[32m", "Good")
+    print("\x1b[0m", "...Начало загрузки....")
+    s = "█"
+    for i in range(101):
+        time.sleep(0.05)
+        print('\r', 'Запуск', i * s, str(i), '%', end='')
+    print("\x1b[32m", "\nЗагрузка завершена")
+
 
 q = queue.Queue()
+
+
+
 
 
 model = vosk.Model('model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
@@ -23,6 +38,8 @@ new_file, filename = tempfile.mkstemp()
 device = sd.default.device
 samplerate = int(sd.query_devices(device[0], 'input')['default_samplerate'])  # получаем частоту микрофона
 
+
+print("\x1b[32m",'Готов к работе')
 
 
 def callback(indata, frames, time, status):
@@ -35,7 +52,7 @@ def callback(indata, frames, time, status):
 
 
 
-print('Готов к работе')
+
 
 
 hi()
@@ -43,7 +60,7 @@ hi()
 from skills import *
 def recognize(data, vectorizer, clf):
 
-    TRIGGERS = {'скайнет'}
+    TRIGGERS = {'скайнет', 'спать'}
 
     # проверяем есть ли имя бота в data, если нет, то return
     trg = TRIGGERS.intersection(data.split())
@@ -100,7 +117,9 @@ def main():
                 data = json.loads(rec.Result())['text']
                 recognize(data, vectorizer, clf)
             else:
-                print(rec.PartialResult())
+                print("\x1b[0m",rec.PartialResult())
+
+
 
 
 

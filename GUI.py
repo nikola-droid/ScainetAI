@@ -1,6 +1,6 @@
+import time
 from tkinter import *
 from PIL import Image, ImageTk
-
 
 
 root = Tk()
@@ -35,10 +35,24 @@ sr=Scrollbar(root)
 sr.config(command=txtBox.yview)
 txtBox.config(yscrollcommand=sr.set)
 
-def searching():    #Функция записи в текстбокс
+def searching():
     key = txtBox.get("1.0",'end-1c')
+    if key == "1234":
+        print("\x1b[32m","Good")
+        load()
 
+        
+    else:
+        print("\x1b[31m","EROR")
 
+def load():
+    print("\x1b[0m","...Начало загрузки...")
+    s="█"
+    for i in range (101):
+        time.sleep(0.05)
+        print('\r', 'Запуск', i*s, str(i), '%', end='')
+    print("\x1b[32m","\nЗагрузка завершена")
+    exit()
 
 
 #ButtonDesign
