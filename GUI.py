@@ -1,11 +1,7 @@
-import time
 from tkinter import *
 from PIL import Image, ImageTk
-import os
 from tkinter.ttk import *
-import multiprocessing as mp
 from threading import Thread
-from skills import MyGlobals
 
 
 root = Tk()
@@ -25,19 +21,23 @@ txtBox.config(yscrollcommand=sr.set)
 
 
 
+
+
 def new_thread():
     t1 = Thread(target=searching())
     t1.start()
+red= "\x1b[32m"
 def searching():
     key = txtBox.get("1.0",'end-1c')
     if key =="1234":
         print("\x1b[32m", "Good")
         Slide()
         quit()
-
     else:
-        print("ERROR")
+        txtBox.delete(1.0,END)
+        txtBox.insert(1.0,"ERROR")
         key = txtBox.get("1.0", 'end-1c')
+        txtBox.delete(1.0, END)
 
 
 
