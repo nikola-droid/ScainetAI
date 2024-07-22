@@ -1,6 +1,8 @@
 import time
 from tkinter import *
 from PIL import Image, ImageTk
+import os
+from skills import MyGlobals
 
 
 root = Tk()
@@ -23,10 +25,7 @@ for i in range(gif.n_frames):
 frame_label = Label(root)
 frame_label.pack()
 
-# Define a function to play the animation
-def play_animation(frame_idx):
-    frame_label.config(image=frames[frame_idx])
-    root.after(50, play_animation, (frame_idx+1) % len(frames))
+
 
 #TextBox Design
 txtBox = Text(root, width=80, height=3, font='Tahoma')
@@ -39,7 +38,9 @@ def searching():
     key = txtBox.get("1.0",'end-1c')
     if key == "1234":
         print("\x1b[32m","Good")
-        load()
+        os.system('start python %USERPROFILE%\Documents\GitHub\ScainetAI\main.py')
+        print(MyGlobals.outfraze)
+
 
         
     else:
@@ -52,7 +53,6 @@ def load():
         time.sleep(0.05)
         print('\r', 'Запуск', i*s, str(i), '%', end='')
     print("\x1b[32m","\nЗагрузка завершена")
-    exit()
 
 
 #ButtonDesign
@@ -62,7 +62,6 @@ btn1.place(x=40, y=600)
 
 
 
-play_animation(0)
 root.mainloop()
 
 

@@ -1,3 +1,3 @@
 @echo off
-start python "%USERPROFILE%\Documents\GitHub\ScainetAI\main.py"
-EXIT /B
+python "%USERPROFILE%\Documents\GitHub\ScainetAI\main.py"
+

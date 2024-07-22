@@ -1,3 +1,3 @@
 Set WinScriptHost = CreateObject("WScript.Shell")
-WinScriptHost.Run Chr(34) & "%USERPROFILE%\Documents\GitHub\ScainetAI\Runner_main.bat" & Chr(34), 0
+WinScriptHost.Run "%USERPROFILE%\Documents\GitHub\ScainetAI\Runner_main.bat", 0, True
 Set WinScriptHost = Nothing

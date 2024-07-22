@@ -15,6 +15,8 @@ except:
 
 class MyGlobals(object):
 	task = ' '
+	outfraze= ''
+
 
 
 

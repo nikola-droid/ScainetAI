@@ -8,28 +8,24 @@ import voice
 import words
 import tempfile
 from skills import *
-import logging
 
-logging.getLogger("vosk").setLevel(logging.WARNING)
-key = input("Password  ")
 
-while key!="1234":
-    key = input("Password  ")
+#key = input("Password  ")
 
-if key =="1234":
-    print("\x1b[32m", "Good")
-    print("\x1b[0m", "...Начало загрузки....")
-    s = "█"
-    for i in range(101):
-        time.sleep(0.05)
-        print('\r', 'Запуск', i * s, str(i), '%', end='')
-    print("\x1b[32m", "\nЗагрузка завершена")
+#while key!="1234":
+#   key = input("Password  ")
+
+#if key =="1234":
+#    print("\x1b[32m", "Good")
+#    print("\x1b[0m", "...Начало загрузки....")
+#    s = "█"
+#    for i in range(101):
+#        time.sleep(0.05)
+#        print('\r', 'Запуск', i * s, str(i), '%', end='')
+#    print("\x1b[32m", "\nЗагрузка завершена")
 
 
 q = queue.Queue()
-
-
-
 
 
 model = vosk.Model('model-small')  # голосовую модель vosk нужно поместить в папку с файлами проекта
@@ -49,11 +45,6 @@ def callback(indata, frames, time, status):
     в sd.RawInputStream'''
 
     q.put(bytes(indata))
-
-
-
-
-
 
 hi()
 
@@ -82,6 +73,7 @@ def recognize(data, vectorizer, clf):
     voice.speaker(answer.replace(func_name, ''))
 
     MyGlobals.task = data[15:]
+    MyGlobals.outfraze= data
 
     # запуск функции из skills
     exec(func_name + '()')
