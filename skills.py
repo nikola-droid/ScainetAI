@@ -15,7 +15,7 @@ except:
 
 class MyGlobals(object):
 	task = ' '
-	outfraze= ''
+	outFraze = ' '
 
 
 
@@ -236,6 +236,9 @@ def weather():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
+	word_output_w = "https://yandex.ru/pogoda/moscow?ysclid=lyo5fqv42n298075757&lat=55.755863&lon=37.6177"
+	webbrowser.open(word_output_w, new=2)
+
 
 def cool():
 	data = [
@@ -248,3 +251,16 @@ def cool():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
+
+def install_pip():
+	data = [
+		'Voice\lis\yes.wav',
+	]
+	r = random.choice(data)
+	f_name = r
+	wave_obj = sa.WaveObject.from_wave_file(f_name)
+	play = wave_obj.play()
+	play.wait_done()
+	play.stop()
+	os.system('python %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\istall_pip.py')
+	print("\x1b[32m","Compleat")

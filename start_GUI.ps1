@@ -1,0 +1,1 @@
+﻿start-process (python ".\GUI_main.py")

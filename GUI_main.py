@@ -3,10 +3,10 @@ from tkinter import *
 from PIL import Image, ImageTk
 import os
 from skills import MyGlobals
-
+from threading import Thread
 
 root = Tk()
-root.title("Scainet")
+root.title("Scainet_GUI")
 root.configure(background="darkGrey")
 root.minsize(1024, 540)  # width, height
 root.maxsize(1024, 540)
@@ -20,12 +20,12 @@ txtBox.place(x=35, y=200)
 sr = Scrollbar(root)
 sr.config(command=txtBox.yview)
 txtBox.config(yscrollcommand=sr.set)
-
-txtBox.insert('1.0', MyGlobals.outfraze)
-
+def new():
+    t1 = Thread(target=open)
+    t1.start()
+txtBox.insert('1.0', MyGlobals.outFraze)
 
 root.mainloop()
-
 
 
 

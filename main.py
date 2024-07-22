@@ -4,25 +4,18 @@ import sounddevice as sd  # pip install sounddevice
 import vosk  # pip install vosk
 import json
 import queue
+
+
 import voice
 import words
 import tempfile
 from skills import *
+from threading import Thread
 
 
-#key = input("Password  ")
 
-#while key!="1234":
-#   key = input("Password  ")
 
-#if key =="1234":
-#    print("\x1b[32m", "Good")
-#    print("\x1b[0m", "...Начало загрузки....")
-#    s = "█"
-#    for i in range(101):
-#        time.sleep(0.05)
-#        print('\r', 'Запуск', i * s, str(i), '%', end='')
-#    print("\x1b[32m", "\nЗагрузка завершена")
+
 
 
 q = queue.Queue()
@@ -46,12 +39,16 @@ def callback(indata, frames, time, status):
 
     q.put(bytes(indata))
 
+def open():
+    t1 = Thread(target=os.system('python %USERPROFILE%\Documents\GitHub\ScainetAI\GUI.py'))
+    t1.start()
+open()
 hi()
 
 from skills import *
 def recognize(data, vectorizer, clf):
 
-    TRIGGERS = {'скайнет', 'спать'}
+    TRIGGERS = {'джарвис', 'спать', 'джервис'}
 
     # проверяем есть ли имя бота в data, если нет, то return
     trg = TRIGGERS.intersection(data.split())
@@ -73,7 +70,8 @@ def recognize(data, vectorizer, clf):
     voice.speaker(answer.replace(func_name, ''))
 
     MyGlobals.task = data[15:]
-    MyGlobals.outfraze= data
+
+    MyGlobals.outFraze = data
 
     # запуск функции из skills
     exec(func_name + '()')
