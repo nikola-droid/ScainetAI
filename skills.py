@@ -81,8 +81,6 @@ def restart():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
-	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\RunScript.vbs')
-	quit()
 
 def offBot():
 	data = [
@@ -95,7 +93,8 @@ def offBot():
 	play = wave_obj.play()
 	play.wait_done()
 	play.stop()
-	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
+	#os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
+	quit()
 
 
 def telegram():

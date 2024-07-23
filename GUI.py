@@ -1,8 +1,9 @@
 from tkinter import *
+import time
 from PIL import Image, ImageTk
 from tkinter.ttk import *
 from threading import Thread
-
+from tkinter import messagebox
 
 root = Tk()
 root.title("Scainet_lock")
@@ -19,9 +20,9 @@ sr=Scrollbar(root)
 sr.config(command=txtBox.yview)
 txtBox.config(yscrollcommand=sr.set)
 
-
-
-
+def preventClose():
+    pass
+root.protocol("WM_DELETE_WINDOW", preventClose)
 
 def new_thread():
     t1 = Thread(target=searching())
@@ -35,20 +36,10 @@ def searching():
         quit()
     else:
         txtBox.delete(1.0,END)
-        txtBox.insert(1.0,"ERROR")
-        key = txtBox.get("1.0", 'end-1c')
+        messagebox.showerror("УПС", "Пароль не верный")
         txtBox.delete(1.0, END)
+        key = txtBox.get("1.0", 'end-1c')
 
-
-
-
-#def load():
-#    print("\x1b[0m","...Начало загрузки...")
-#    s="█"
-#    for i in range (101):
-#        time.sleep(0.05)
-#        print('\r', 'Запуск', i*s, str(i), '%', end='')
-#    print("\x1b[32m","\nЗагрузка завершена")
 
 
 #ButtonDesign
@@ -63,13 +54,13 @@ def Slide():
     import time
     PB['value']=20
     root.update_idletasks()
-    time.sleep(2)
+    time.sleep(1)
     PB['value']=50
     root.update_idletasks()
-    time.sleep(2)
+    time.sleep(1)
     PB['value']=80
     root.update_idletasks()
-    time.sleep(2)
+    time.sleep(1)
     PB['value']=100
 PB.pack(side = BOTTOM, pady = 200, ipadx=50, ipady= 5)
 

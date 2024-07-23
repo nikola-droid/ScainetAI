@@ -97,7 +97,7 @@ def main():
 
     del words.data_set
     # постоянная прослушка микрофона
-    with sd.RawInputStream(samplerate=samplerate, blocksize=56000, device=device[0], dtype='int16',
+    with sd.RawInputStream(samplerate=samplerate, blocksize=48000, device=device[0], dtype='int16',
                            channels=1, callback=callback):
 
         rec = vosk.KaldiRecognizer(model, samplerate)
