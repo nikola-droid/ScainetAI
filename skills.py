@@ -1,9 +1,11 @@
 import os
 import subprocess
+import wave
 import webbrowser
 import simpleaudio as sa
 import random
 import time
+from playsound3 import playsound
 
 
 
@@ -17,47 +19,51 @@ class MyGlobals(object):
 	task = ' '
 	outFraze = ' '
 
-
-
-
 def browser():
-
+	data = [
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
+	]
+	r = random.choice(data)
+	playsound(r)
 	word_input = MyGlobals.task
 	word_output = "https://yandex.ru/search/?text=" + word_input
 	webbrowser.open(word_output, new=2)
 
 def browser_1():
-
+	data = [
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
+	]
+	r = random.choice(data)
+	playsound(r)
 	word_output = "https://ya.ru/"
 	webbrowser.open(word_output, new=2)
 
-
-
 def game():
 	data = [
-		'Voice\game\game.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	os.system('start python %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\love.py')
 
 def offpc():
 	data = [
-		'Voice\offpc\stop.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
-
+	playsound(r)
 	os.system('shutdown /s /t 10 ')
 
 def passive():
@@ -71,199 +77,145 @@ def passive_1():
 
 def restart():
 	data = [
-		'Voice\lis\lisn.wav',
-		'Voice\lis\out.wav',
-		'Voice\lis\out_1.wav',
-		'Voice\lis\out_2.wav',
-		'Voice\lis\out_3.wav',
-		'Voice\lis\out_4.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def offBot():
 	data = [
-		'Voice\offbot\slip.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	#os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
 	quit()
 
 
 def telegram():
 	data = [
-		'Voice\lis\lisn.wav',
-		'Voice\lis\out.wav',
-		'Voice\lis\out_1.wav',
-		'Voice\lis\out_2.wav',
-		'Voice\lis\out_3.wav',
-		'Voice\lis\out_4.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	cmd = 'start %USERPROFILE%\AppData\Roaming\Telegram_Desktop\Telegram.exe'
 	process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
 
 def wife():
 	data = [
-		'Voice\wife\wife.wav',
-		'Voice\wife\wife_1.wav',
-		'Voice\wife\wife_2.wav',
-		'Voice\wife\wife_3.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	os.system('start python %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\love.py')
 
 def hi():
-	f_name = 'Voice\Activ\hi.wav'
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound("Voice\Activ\Time_3-12.wav")
 
 def dialog():
 	data = [
-		'Voice\dialog\dialog.wav',
-		'Voice\dialog\dialog_1.wav',
-		'Voice\dialog\dialog_2.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def lisn():
 	pass
 	data = [
-		 'Voice\lis\lisn.wav',
-		'Voice\lis\out.wav',
-		'Voice\lis\out_1.wav',
-		'Voice\lis\out_2.wav',
-		'Voice\lis\out_3.wav',
-		'Voice\lis\out_4.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r=random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def times():
 	data = [
-		'Voice\Time\Time.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def mem():
 	data = [
-		'Voice\mem\lol.wav',
-		'Voice\mem\lol_1.wav',
-		'Voice\mem\lol_2.wav',
-		'Voice\mem\mem.wav',
-		'Voice\mem\mem_1.wav',
-		'Voice\mem\mem_2.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def music():
 	data = [
-		'Voice\lis\yes.wav',
-		'Voice\music\music.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	os.system('start %USERPROFILE%\AppData\Local\Programs\YandexMusic\Яндекс_Музыка.exe')
-
-
 
 def openexe():
 	data = [
-		'Voice\openexe\open_1.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def weather():
 	data = [
-		'Voice\weather\weather.wav',
-		'Voice\lis\yes.wav',
-
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	word_output_w = "https://yandex.ru/pogoda/moscow?ysclid=lyo5fqv42n298075757&lat=55.755863&lon=37.6177"
 	webbrowser.open(word_output_w, new=2)
 
-
 def cool():
 	data = [
-		'Voice\cool\cool.wav',
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 
 def install_pip():
 	data = [
-		'Voice\lis\yes.wav',
+		"Voice\lis\Fixed.wav",
+		"Voice\lis\lisn_you.wav",
+		"Voice\lis\pristupay.wav",
+		"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
-	f_name = r
-	wave_obj = sa.WaveObject.from_wave_file(f_name)
-	play = wave_obj.play()
-	play.wait_done()
-	play.stop()
+	playsound(r)
 	os.system('python %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\istall_pip.py')
 	print("\x1b[32m","Compleat")

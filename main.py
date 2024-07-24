@@ -12,7 +12,7 @@ import voice
 import words
 import tempfile
 from skills import *
-from threading import Thread
+from datetime import datetime
 
 
 
@@ -40,15 +40,29 @@ def callback(indata, frames, time, status):
     в sd.RawInputStream'''
 
     q.put(bytes(indata))
-
+now = datetime.now()
+current_time = now.strftime("%H:%M:%S")
 def open():
-    #t1 = Thread(target=os.system('python %USERPROFILE%\Documents\GitHub\ScainetAI\GUI.py'))
     retcode = subprocess.call([sys.executable, "GUI.py"])
     if retcode !=0:
         sys.exit(126)
 
 open()
-hi()
+
+def time():
+    print(current_time)
+    if current_time > "00:00:00" and current_time < "12:00:00":
+        playsound(r"C:\Users\NikolaEng\Documents\GitHub\ScainetAI\Voice\Activ\Time_3-12.wav")
+    if current_time > "12:00:00" and current_time < "18:00:00":
+        playsound(r"C:\Users\NikolaEng\Documents\GitHub\ScainetAI\Voice\Activ\audio_time_12-6.wav")
+    if current_time > "18:00:00" and current_time < "24:00:00":
+        playsound(r"C:\Users\NikolaEng\Documents\GitHub\ScainetAI\Voice\Activ\audio_time_6-3.wav")
+
+time()
+
+
+
+
 
 from skills import *
 def recognize(data, vectorizer, clf):

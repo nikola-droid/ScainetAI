@@ -3,8 +3,9 @@ from tkinter import *
 import time
 from PIL import ImageTk
 from tkinter.ttk import *
-from threading import Thread
 from tkinter import messagebox
+
+
 
 root = Tk()
 root.title("Scainet_lock")
@@ -25,10 +26,11 @@ def preventClose():
     pass
 root.protocol("WM_DELETE_WINDOW", preventClose)
 
-def new_thread():
-    t1 = Thread(target=searching())
-    t1.start()
+
 red= "\x1b[32m"
+
+
+
 def searching():
     key = txtBox.get("1.0",'end-1c')
     if key =="1234":
@@ -43,10 +45,17 @@ def searching():
 
 
 
+
+
+
 #ButtonDesign
+
+
+
 Button_img = ImageTk.PhotoImage(file = "GUI\Button.png")
 btn1 = Button(root, text="Button_1",  image=Button_img, command=searching)
 btn1.place(x=115, y=300)
+
 
 
 PB = Progressbar(root,orient=HORIZONTAL,length=250, mode='determinate')
