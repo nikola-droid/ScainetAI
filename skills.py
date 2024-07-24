@@ -28,7 +28,7 @@ def browser():
 
 def browser_1():
 
-	word_output = "https://ya.ru/?npr=1&utm_referrer=https%3A%2F%2Fyandex.ru%2F"
+	word_output = "https://ya.ru/"
 	webbrowser.open(word_output, new=2)
 
 
