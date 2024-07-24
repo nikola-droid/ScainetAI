@@ -26,6 +26,10 @@ def browser():
 	word_output = "https://yandex.ru/search/?text=" + word_input
 	webbrowser.open(word_output, new=2)
 
+def browser_1():
+
+	word_output = "https://ya.ru/?npr=1&utm_referrer=https%3A%2F%2Fyandex.ru%2F"
+	webbrowser.open(word_output, new=2)
 
 
 

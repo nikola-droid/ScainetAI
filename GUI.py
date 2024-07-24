@@ -1,6 +1,7 @@
+import sys
 from tkinter import *
 import time
-from PIL import Image, ImageTk
+from PIL import ImageTk
 from tkinter.ttk import *
 from threading import Thread
 from tkinter import messagebox
@@ -33,7 +34,7 @@ def searching():
     if key =="1234":
         print("\x1b[32m", "Good")
         Slide()
-        quit()
+        sys.exit(0)
     else:
         txtBox.delete(1.0,END)
         messagebox.showerror("УПС", "Пароль не верный")

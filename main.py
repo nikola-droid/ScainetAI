@@ -1,3 +1,5 @@
+import sys
+
 from sklearn.feature_extraction.text import CountVectorizer  # pip install scikit-learn
 from sklearn.linear_model import LogisticRegression
 import sounddevice as sd  # pip install sounddevice
@@ -40,8 +42,11 @@ def callback(indata, frames, time, status):
     q.put(bytes(indata))
 
 def open():
-    t1 = Thread(target=os.system('python %USERPROFILE%\Documents\GitHub\ScainetAI\GUI.py'))
-    t1.start()
+    #t1 = Thread(target=os.system('python %USERPROFILE%\Documents\GitHub\ScainetAI\GUI.py'))
+    retcode = subprocess.call([sys.executable, "GUI.py"])
+    if retcode !=0:
+        sys.exit(126)
+
 open()
 hi()
 
