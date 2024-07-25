@@ -52,11 +52,11 @@ open()
 def time():
     print(current_time)
     if current_time > "00:00:00" and current_time < "12:00:00":
-        playsound(r"C:\Users\NikolaEng\Documents\GitHub\ScainetAI\Voice\Activ\Time_3-12.wav")
+        playsound(r"Voice\Activ\Time_3-12.wav")
     if current_time > "12:00:00" and current_time < "18:00:00":
-        playsound(r"C:\Users\NikolaEng\Documents\GitHub\ScainetAI\Voice\Activ\audio_time_12-6.wav")
+        playsound(r"Voice\Activ\audio_time_12-6.wav")
     if current_time > "18:00:00" and current_time < "24:00:00":
-        playsound(r"C:\Users\NikolaEng\Documents\GitHub\ScainetAI\Voice\Activ\audio_time_6-3.wav")
+        playsound(r"Voice\Activ\audio_time_6-3.wav")
 
 time()
 
