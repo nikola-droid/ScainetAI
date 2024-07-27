@@ -1,21 +1,18 @@
-import sys
-import subprocess
 import json
+import sys
 import queue
 import tempfile
 from datetime import datetime
 import sounddevice as sd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
-import vosk  # pip install vosk
-import voice
+import vosk
+
 import words
+
+
 from gtts import gTTS
-import os
-
 from skills import *
-
-
 
 # Инициализация очереди
 sample_queue = queue.Queue()
@@ -63,8 +60,6 @@ def speak(text):
     tts.save(filename)
     os.system("start " + filename)  # Windows
 
-
-
 def recognize(data, vectorizer, clf):
     TRIGGERS = {'джарвис', 'спать', 'джервис'}
 
@@ -109,6 +104,7 @@ def main():
                 recognize(data, vectorizer, clf)
             else:
                 print("\x1b[0m", rec.PartialResult())
+
 
 if __name__ == '__main__':
     main()

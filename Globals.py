@@ -1,1 +1,3 @@
-fraze_out= []
+
+outFraze = ' '
+blocking = ' '
