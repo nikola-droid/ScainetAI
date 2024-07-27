@@ -4,6 +4,7 @@ import time
 from PIL import ImageTk
 from tkinter.ttk import *
 from tkinter import messagebox
+import hashlib
 
 
 
@@ -29,22 +30,27 @@ root.protocol("WM_DELETE_WINDOW", preventClose)
 
 red= "\x1b[32m"
 
-
+def hash(text):
+    return hashlib.sha256(text.encode()).hexdigest()
 
 def searching():
     key = txtBox.get("1.0",'end-1c')
-    if key =="1234":
+    hash_input = hash(key)
+    hash_password="03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+    if hash_input == hash_password:
         print("\x1b[32m", "Good")
+        print(hash(key))
         Slide()
         sys.exit(0)
     else:
         txtBox.delete(1.0,END)
         messagebox.showerror("УПС", "Пароль не верный")
+        time.sleep(10)
         txtBox.delete(1.0, END)
         key = txtBox.get("1.0", 'end-1c')
 
 
-
+#pass 1234#
 
 
 

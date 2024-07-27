@@ -26,4 +26,13 @@ data_set = {
 'молодец':'cool',
 'справка':'passive_1',
 'пакеты':'install_pip',
+#команды от GPT
+'расскажи что-нибудь интересное': 'interesting_fact',
+'покажи смешное видео': 'funny_video',
+'поставь трек': 'play_track',
+'переведи': 'translate',
+'какую погоду': 'current_weather',
+'позвони маме': 'call_mom',
+'напомни о встрече': 'remind_me',
+'распланируй день': 'plan_day',
 }

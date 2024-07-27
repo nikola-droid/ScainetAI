@@ -88,14 +88,14 @@ def restart():
 def offBot():
 	data = [
 		"Voice\lis\Fixed.wav",
-		"Voice\lis\lisn_you.wav",
-		"Voice\lis\pristupay.wav",
-		"Voice\lis\Vipolnay.wav",
+		#"Voice\lis\lisn_you.wav",
+		#"Voice\lis\pristupay.wav",
+		#"Voice\lis\Vipolnay.wav",
 	]
 	r = random.choice(data)
 	playsound(r)
-	#os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
-	quit()
+	os.system('start %USERPROFILE%\\Documents\\GitHub\\ScainetAI\\comands\\exit.exe')
+	exit()
 
 
 def telegram():
