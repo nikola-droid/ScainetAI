@@ -1,5 +1,4 @@
 import json
-import sys
 import queue
 import tempfile
 from datetime import datetime
@@ -7,12 +6,10 @@ import sounddevice as sd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 import vosk
-
 import words
-
-
 from gtts import gTTS
 from skills import *
+
 
 # Инициализация очереди
 sample_queue = queue.Queue()
@@ -32,11 +29,6 @@ def audio_callback(indata, frames, time, status):
     sample_queue.put(bytes(indata))
 
 
-def open_gui():
-    """Запускает GUI."""
-    retcode = subprocess.call([sys.executable, "GUI.py"])
-    if retcode != 0:
-        sys.exit(126)
 
 
 def play_time_based_sound():
@@ -51,9 +43,10 @@ def play_time_based_sound():
         playsound(os.path.join("Voice", "Activ", "audio_time_6-3.wav"))
 
 
-open_gui()
+
 play_time_based_sound()
 
+dialog()
 def speak(text):
     tts = gTTS(text=text, lang='ru')
     filename = "response.mp3"
@@ -75,7 +68,13 @@ def recognize(data, vectorizer, clf):
     # Вместо voice.speaker
    # speak(answer.replace(func_name, ''))
 
-    MyGlobals.task = data[15:]
+    word = "браузер"
+    position = data.find(word)
+    if position != -1:
+        result = data[position + len(word):]
+        MyGlobals.task = result.strip()
+    else:
+        MyGlobals.task =" "
     MyGlobals.outFraze = data
 
     func_name = answer.split()[0]

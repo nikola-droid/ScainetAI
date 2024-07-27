@@ -122,8 +122,6 @@ def wife():
 def hi():
 	playsound("Voice\Activ\Time_3-12.wav")
 
-
-
 def lisn():
 	pass
 	data = [
@@ -211,58 +209,37 @@ def install_pip():
 	print("\x1b[32m","Compleat")
 
 #Moduls
-
-# Инициализация основного окна
-root = tk.Tk()
-
-# Переменная для хранения состояния чекбокса
-var = tk.BooleanVar()
-
-
-def check_status():
-	# Проверяем состояние чекбокса и выводим его в консоль
-	print(f"Чекбокс выбран: {var.get()}")
-
-
-def blocking():
-	# Возвращаем состояние чекбокса для использования в других функциях
-	return var.get()
-
-
 def dialog():
-	print(f"Состояние blocking: {blocking()}")  # Это для отладки, чтобы увидеть текущее значение
-
-	if not blocking():  # Или if blocking() == False:
-		print("Модуль не выбран")
-	else:
-		print("Модуль активирован")
-
-		# Здесь укажи свои звуковые файлы
 		data = [
 			"Voice/lis/Fixed.wav",
 			"Voice/lis/lisn_you.wav",
 			"Voice/lis/pristupay.wav",
 			"Voice/lis/Vipolnay.wav",
 		]
-
 		r = random.choice(data)  # Выбираем случайный файл из списка
 		playsound(r)  # Проигрываем выбранный звук
 
-		# Импортируем модуль, если это необходимо
-		from Moduls.Modul_dialog import Modul_dialog # Убедись, что это корректный путь
+		# Путь к файлу .py для запуска
+		# Путь к файлу .py для запуска
+		file_to_open = "Moduls/Modul_dialog.py"  # Убедись, что путь указан правильно
 
-		# Запускаем новый поток для работы с диалогом
-		thread = threading.Thread(target=Modul_dialog, args=("Первый поток",))
-		thread.start()
+		def open_python_file(file_path):
+			"""Открывает файл .py в отдельном потоке."""
+			try:
+				# Запускаем .py файл с помощью subprocess
+				subprocess.Popen(['python', file_path])
+				print(f"Файл {file_path} открыт в отдельном процессе.")
+			except Exception as e:
+				print(f"Произошла ошибка при открытии файла: {e}")
+
+		def start_thread():
+			"""Запускает открытие файла в новом потоке."""
+			thread = threading.Thread(target=open_python_file, args=(file_to_open,))
+			thread.start()
+
+		# Запускаем поток для открытия файла
+		start_thread()
 
 
-# Создаем Checkbutton
-checkbox = tk.Checkbutton(root, text="Dialog", variable=var, command=check_status)
-checkbox.pack()
 
-# Добавим кнопку для запуска диалога
-start_button = tk.Button(root, text="Запустить диалог", command=dialog)
-start_button.pack()
 
-# Запуск основного цикла приложения
-root.mainloop()
